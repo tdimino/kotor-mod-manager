@@ -2,6 +2,8 @@
 
 A comprehensive Claude Code skill for managing Knights of the Old Republic (KOTOR) mods on macOS via Steam.
 
+**Author:** Pnutmaster (TWCenter, Crusader Kings II, Rome II: Total War, Fallout: New Vegas modding communities)
+
 ## Features
 
 - **Automatic Installation Detection** - Finds KOTOR 1 & 2 installations on macOS
@@ -189,14 +191,27 @@ chmod -R 755 "path/to/Override"
 
 ## Support & Resources
 
-**Communities:**
-- [Deadlystream](https://deadlystream.com/) - KOTOR modding community
-- [r/kotor](https://reddit.com/r/kotor) - Reddit community
-- [kotor.neocities.org](https://kotor.neocities.org/) - Mod builds
+**Comprehensive Mod Guides:**
+- [KOTOR 2025 Mod Guide (Nexus Mods)](https://www.nexusmods.com/kotor/mods/1705) - Complete modding guide with automated and manual installation options, tested on multiple systems for ~10 years
+- [KOTOR 2025 Mod Guide (Deadly Stream)](https://deadlystream.com/files/file/2689-kotor-2025-mod-guide/) - Restores cut content that Community Patch does not, updates resolution/UI, fixes bugs
+- [Nexus Mods - KOTOR](https://www.nexusmods.com/kotor) - Primary mod repository with thousands of mods and active community
 
-**Tools:**
-- [KOTORModSync](https://github.com/th3w1zard1/KOTORModSync) - Mod manager
-- [KOTOR Tool](https://deadlystream.com/files/file/280-kotor-tool/) - Advanced modding (Windows)
+**Communities:**
+- [Deadly Stream](https://deadlystream.com/) - Premier KOTOR modding community, mod hosting, and technical resources
+- [r/kotor](https://reddit.com/r/kotor) - Reddit community with modding guides, spoiler-free builds, and support
+
+**Essential Tools:**
+- [KOTORModSync](https://github.com/th3w1zard1/KOTORModSync) - Modern mod manager for macOS/Windows with native TSLPatcher support
+- [KOTOR Tool](https://deadlystream.com/files/file/280-kotor-tool/) - Advanced modding suite (Windows only)
+- [TSLPatcher](https://deadlystream.com/files/file/1604-tslpatcher-v108b/) - Industry-standard mod installer for complex content mods
+
+**Key Mods Referenced in 2025 Community Guides:**
+- **K1R Restoration 1.2** - Restores substantial cut content including dialogue, hidden items, and missions that Community Patch does not restore
+- **High Resolution Menus** - 1920x1080 UI upgrade for modern displays
+- **Widescreen Fixes** - Proper aspect ratio support and fade fixes
+- **HD Texture Packs** - AI-upscaled cutscenes, planetary skyboxes, and character models
+- **Ultimate AI 1.5** - Improved enemy AI and difficulty balancing
+- **Community Patch** - Alternative to K1R (incompatible - choose one or the other)
 
 ## Version History
 
@@ -214,10 +229,11 @@ This skill is provided as-is for use with Claude Code. Includes references to co
 
 ## Credits
 
-- **Created for:** Claude Code users
-- **Inspired by:** KOTOR modding community
-- **Research from:** Deadlystream, Reddit r/kotor
-- **Tools Referenced:** KOTORModSync by th3w1zard1, TSLPatcher by stoffe
+- **Author:** Pnutmaster - Contributing modder from TWCenter, Crusader Kings II, Rome II: Total War, and Fallout: New Vegas communities
+- **Created for:** Claude Code users and the KOTOR modding community
+- **Research from:** Deadly Stream, Nexus Mods, Reddit r/kotor, KOTOR 2025 Mod Guide community
+- **Tools Referenced:** KOTORModSync by th3w1zard1, TSLPatcher by stoffe, Wine compatibility layer
+- **Special Thanks:** Hraith (KOTOR 2025 Mod Guide), Deadly Stream modding community, and all KOTOR mod creators who have preserved this classic RPG
 
 ---
 
