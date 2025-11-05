@@ -210,7 +210,6 @@ chmod -R 755 "path/to/Override"
 - **High Resolution Menus** - 1920x1080 UI upgrade for modern displays
 - **Widescreen Fixes** - Proper aspect ratio support and fade fixes
 - **HD Texture Packs** - AI-upscaled cutscenes, planetary skyboxes, and character models
-- **Ultimate AI 1.5** - Improved enemy AI and difficulty balancing
 - **Community Patch** - Alternative to K1R (incompatible - choose one or the other)
 
 ## Version History
