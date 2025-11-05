@@ -1,0 +1,555 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-11-04",
+  "schema_version": "1.0",
+  "mods": {
+    "vurts-visual-resurgence": {
+      "name": "Vurt's KotOR Visual Resurgence",
+      "version": "0.99a",
+      "game": "kotor1",
+      "type": "visual",
+      "install_method": "override",
+      "install_order": "late",
+      "file_count": 2411,
+      "size_mb": 2700,
+      "modifies": {
+        "file_types": [".tpc"],
+        "categories": ["textures"],
+        "game_systems": ["graphics", "visuals"],
+        "specific_files": []
+      },
+      "compatibility": {
+        "requires": [],
+        "compatible_with": ["k1r-restoration", "*bugfix", "*content"],
+        "incompatible_with": [],
+        "conflicts_with": {
+          "high-quality-skyboxes": {
+            "severity": "low",
+            "reason": "Both modify some sky textures",
+            "resolution": "Last installed wins, user choice"
+          },
+          "character-texture-mods": {
+            "severity": "low",
+            "reason": "May overlap on character textures",
+            "resolution": "Choose preferred textures or mix manually"
+          }
+        },
+        "install_before": [],
+        "install_after": ["k1r-restoration", "*content-mods"]
+      },
+      "installation_notes": [
+        "Install AFTER content mods like K1R",
+        "Safe to partially install (pick specific textures)",
+        "Large download (2.7 GB)",
+        "No .2da modifications - safe texture-only mod"
+      ],
+      "tested_combinations": [
+        {
+          "with": ["k1r-restoration"],
+          "status": "compatible",
+          "notes": "Install Vurt's after K1R for best results"
+        }
+      ],
+      "source": {
+        "url": "https://deadlystream.com/files/file/1730-vurts-kotor-visual-resurgence/",
+        "author": "Vurt",
+        "date_added": "2025-10-06"
+      }
+    },
+    "k1r-restoration": {
+      "name": "KotOR 1 Restoration (K1R)",
+      "version": "1.2",
+      "game": "kotor1",
+      "type": "foundation",
+      "install_method": "tslpatcher",
+      "install_order": "first",
+      "file_count": 1107,
+      "size_mb": 68,
+      "modifies": {
+        "file_types": [".2da", ".ncs", ".nss", ".dlg", ".utc", ".uti"],
+        "categories": ["data_tables", "scripts", "dialogs", "templates", "modules"],
+        "game_systems": [
+          "core_tables",
+          "difficulty",
+          "items",
+          "feats",
+          "force_powers",
+          "npcs",
+          "quests",
+          "restored_content"
+        ],
+        "specific_files": [
+          "pazaakdecks.2da",
+          "globalcat.2da",
+          "heads.2da",
+          "spells.2da",
+          "difficultyopt.2da",
+          "baseitems.2da",
+          "feat.2da",
+          "visualeffects.2da",
+          "soundset.2da",
+          "forceshields.2da"
+        ]
+      },
+      "compatibility": {
+        "requires": [],
+        "compatible_with": [
+          "*texture-mods",
+          "*audio-mods",
+          "*model-mods",
+          "kainzorus-npc-overhaul"
+        ],
+        "incompatible_with": [
+          "other-restoration-mods",
+          "vanilla-dialog-edits",
+          "conflicting-script-mods"
+        ],
+        "conflicts_with": {
+          "other-2da-mods": {
+            "severity": "high",
+            "reason": "K1R modifies core .2da files extensively",
+            "resolution": "Install K1R first, then other mods using TSLPatcher"
+          }
+        },
+        "install_before": ["*"],
+        "install_after": ["kainzorus-npc-overhaul"]
+      },
+      "optional_components": [
+        {
+          "name": "Main",
+          "description": "Core K1R restoration content",
+          "required": true
+        },
+        {
+          "name": "Iriaz",
+          "description": "Restores Iriaz creatures to Dantooine",
+          "required": false
+        },
+        {
+          "name": "Manaan_Airlock",
+          "description": "Party members on Manaan Sea Floor",
+          "required": false
+        },
+        {
+          "name": "Vulkars",
+          "description": "Vulkar Base Sub-level restoration",
+          "required": false
+        },
+        {
+          "name": "Juh_Jol_Clothes",
+          "description": "Original recruit outfits for Juhani and Jolee",
+          "required": false
+        }
+      ],
+      "integrated_mods": [
+        "Salk's Dialogue Fixes 2.0",
+        "Kainzorus Prime's Music Fixes",
+        "Red Hessian's Texture Fix",
+        "Kexikus' Quest Fixes"
+      ],
+      "installation_notes": [
+        "MUST BE INSTALLED FIRST before any other mods",
+        "Exception: Kainzorus Prime's NPC Overhaul can be installed first",
+        "Install Main component first, then optional components",
+        "dialog.tlk replacement is optional (fixes typos/grammar)",
+        "Adds 'Impossible' difficulty setting",
+        "Extensively modifies .2da files"
+      ],
+      "tested_combinations": [
+        {
+          "with": ["vurts-visual-resurgence"],
+          "status": "compatible",
+          "notes": "Install K1R first, then Vurt's"
+        },
+        {
+          "with": ["texture-mods", "audio-mods"],
+          "status": "compatible",
+          "notes": "K1R is compatible with all visual/audio mods"
+        }
+      ],
+      "source": {
+        "url": "https://deadlystream.com/files/file/54-k1r-1-2/",
+        "author": "K1R Team, Fair Strides",
+        "date_added": "2012-09-16"
+      }
+    },
+    "high-quality-skyboxes-ii": {
+      "name": "High Quality Skyboxes II",
+      "version": "2.2",
+      "game": "kotor1",
+      "type": "visual",
+      "install_method": "override",
+      "install_order": "late",
+      "file_count": 27,
+      "size_mb": 85,
+      "modifies": {
+        "file_types": [".tpc", ".tga"],
+        "categories": ["textures", "skyboxes"],
+        "game_systems": ["graphics", "environments"],
+        "specific_files": []
+      },
+      "compatibility": {
+        "requires": [],
+        "compatible_with": ["k1r-restoration", "*content-mods"],
+        "incompatible_with": [],
+        "conflicts_with": {
+          "vurts-visual-resurgence": {
+            "severity": "low",
+            "reason": "Some sky textures may overlap",
+            "resolution": "Install order determines which skyboxes appear"
+          }
+        },
+        "install_before": [],
+        "install_after": ["k1r-restoration", "high-quality-skyboxes-model-fixes"]
+      },
+      "installation_notes": [
+        "Install AFTER K1R",
+        "Install model fixes AFTER this mod",
+        "High-resolution skybox textures for all planets",
+        "Pure texture mod - no conflicts with gameplay mods"
+      ],
+      "tested_combinations": [
+        {
+          "with": ["k1r-restoration", "vurts-visual-resurgence"],
+          "status": "compatible",
+          "notes": "All three work together, install order: K1R → Skyboxes → Vurt's"
+        }
+      ],
+      "source": {
+        "url": "https://deadlystream.com/files/file/723-high-quality-skyboxes-ii/",
+        "author": "Kexikus",
+        "date_added": "2021-10-24"
+      }
+    },
+    "high-quality-skyboxes-model-fixes": {
+      "name": "High Quality Skyboxes Model Fixes",
+      "version": "1.0",
+      "game": "kotor1",
+      "type": "bugfix",
+      "install_method": "override",
+      "install_order": "late",
+      "file_count": 5,
+      "size_mb": 1,
+      "modifies": {
+        "file_types": [".mdl", ".mdx"],
+        "categories": ["models"],
+        "game_systems": ["graphics", "skyboxes"],
+        "specific_files": []
+      },
+      "compatibility": {
+        "requires": ["high-quality-skyboxes-ii"],
+        "compatible_with": ["*"],
+        "incompatible_with": [],
+        "conflicts_with": {},
+        "install_before": [],
+        "install_after": ["high-quality-skyboxes-ii"]
+      },
+      "installation_notes": [
+        "REQUIRES High Quality Skyboxes II by Kexikus",
+        "Install AFTER High Quality Skyboxes II",
+        "Fixes Taris exterior light animations and hideout skybox issues",
+        "Small but important correction mod"
+      ],
+      "tested_combinations": [
+        {
+          "with": ["high-quality-skyboxes-ii"],
+          "status": "compatible",
+          "notes": "Designed to work with HQ Skyboxes II"
+        }
+      ],
+      "source": {
+        "url": "https://deadlystream.com/files/file/1715-high-quality-skyboxes-model-fixes/",
+        "author": "Zobizob",
+        "date_added": "2024-05-18"
+      }
+    },
+    "revamped-fx": {
+      "name": "Revamped FX",
+      "version": "1.0.1",
+      "game": "kotor1",
+      "type": "visual",
+      "install_method": "override",
+      "install_order": "late",
+      "file_count": 50,
+      "size_mb": 12,
+      "modifies": {
+        "file_types": [".tpc", ".tga"],
+        "categories": ["textures", "effects"],
+        "game_systems": ["graphics", "visual_effects", "force_powers"],
+        "specific_files": []
+      },
+      "compatibility": {
+        "requires": [],
+        "compatible_with": ["k1r-restoration", "*texture-mods", "*content-mods"],
+        "incompatible_with": [],
+        "conflicts_with": {},
+        "install_before": [],
+        "install_after": ["k1r-restoration"]
+      },
+      "installation_notes": [
+        "Install AFTER K1R",
+        "Enhances combat sparks, lightning, force powers, explosions, smoke and fire",
+        "Pure texture mod for visual effects",
+        "Maintains Bioware's original art design aesthetic",
+        "No conflicts with other mods"
+      ],
+      "tested_combinations": [
+        {
+          "with": ["k1r-restoration", "vurts-visual-resurgence"],
+          "status": "compatible",
+          "notes": "Works perfectly with all visual enhancement mods"
+        }
+      ],
+      "source": {
+        "url": "https://deadlystream.com/files/file/2581-revamped-fx/",
+        "author": "Olegkuz1997",
+        "date_added": "2024-11-18"
+      }
+    },
+    "kotor-high-resolution-menus": {
+      "name": "KotOR High Resolution Menus",
+      "version": "1.5",
+      "game": "kotor1",
+      "type": "ui",
+      "install_method": "hybrid",
+      "install_order": "early",
+      "file_count": 100,
+      "size_mb": 25,
+      "modifies": {
+        "file_types": [".gui", ".exe"],
+        "categories": ["ui", "menus", "executable"],
+        "game_systems": ["interface", "resolution", "hud"],
+        "specific_files": ["swkotor.exe"]
+      },
+      "compatibility": {
+        "requires": ["1080p-60fps-fix"],
+        "compatible_with": ["k1r-restoration", "*texture-mods", "*content-mods", "widescreen-fade-fix"],
+        "incompatible_with": [],
+        "conflicts_with": {},
+        "install_before": ["*texture-mods"],
+        "install_after": ["k1r-restoration", "1080p-60fps-fix"]
+      },
+      "installation_notes": [
+        "Requires executable patching with supplied HiRes Patcher",
+        "Install AFTER UniWS/widescreen patching (1080p 60fps fix)",
+        "Scales menu screens to fill high-resolution displays",
+        "Supports 30+ resolutions (4:3, 16:10, 16:9, 21:9, 32:9)",
+        "ULTRAWIDE SUPPORT: Includes native support for 21:9 and 32:9 displays",
+        "Compatible with GoG, 4-CD, macOS (x86), and Steam+UniWS versions",
+        "Must copy patched executable back to game directory",
+        "Select the appropriate resolution folder (e.g., gui.2560x1080 for 21:9)",
+        "WARNING: Complex installation - may cause mouse misalignment if not done correctly"
+      ],
+      "tested_combinations": [
+        {
+          "with": ["1080p-60fps-fix", "widescreen-fade-fix"],
+          "status": "compatible",
+          "notes": "Essential combination for modern high-resolution display"
+        },
+        {
+          "with": ["k1r-restoration", "vurts-visual-resurgence"],
+          "status": "compatible",
+          "notes": "UI scaling works with all visual enhancement mods"
+        }
+      ],
+      "source": {
+        "url": "https://deadlystream.com/files/file/1159-kotor-high-resolution-menus/",
+        "author": "ndix UR",
+        "date_added": "2017-10-30"
+      }
+    },
+    "1080p-60fps-fix": {
+      "name": "1080p 60fps Fix",
+      "version": "1.0",
+      "game": "kotor1",
+      "type": "bugfix",
+      "install_method": "executable",
+      "install_order": "early",
+      "file_count": 3,
+      "size_mb": 5,
+      "modifies": {
+        "file_types": [".exe", ".ini"],
+        "categories": ["resolution", "performance", "widescreen"],
+        "game_systems": ["resolution", "framerate", "display"],
+        "specific_files": ["swkotor.exe", "swkotor.ini"]
+      },
+      "compatibility": {
+        "requires": [],
+        "compatible_with": ["*"],
+        "incompatible_with": [],
+        "conflicts_with": {},
+        "install_before": ["kotor-high-resolution-menus", "widescreen-fade-fix"],
+        "install_after": ["k1r-restoration"]
+      },
+      "installation_notes": [
+        "Install IMMEDIATELY after K1R (before all other mods)",
+        "Primary widescreen/resolution patch using UniWS",
+        "Enables 1920x1080 resolution and 60fps support",
+        "Modifies swkotor.ini Width and Height values",
+        "Required for High Resolution Menus to work properly",
+        "May require editable executable for Steam version"
+      ],
+      "tested_combinations": [
+        {
+          "with": ["kotor-high-resolution-menus", "widescreen-fade-fix"],
+          "status": "compatible",
+          "notes": "Core resolution fix that other UI mods depend on"
+        }
+      ],
+      "source": {
+        "url": "https://www.nexusmods.com/kotor/mods/1287",
+        "author": "Various (UniWS-based)",
+        "date_added": "2019-06-15"
+      }
+    },
+    "widescreen-fade-fix": {
+      "name": "Widescreen Fade Fix",
+      "version": "1.0",
+      "game": "kotor1",
+      "type": "bugfix",
+      "install_method": "override",
+      "install_order": "early",
+      "file_count": 2,
+      "size_mb": 1,
+      "modifies": {
+        "file_types": [".tpc", ".tga"],
+        "categories": ["textures", "widescreen"],
+        "game_systems": ["transitions", "cinematics"],
+        "specific_files": []
+      },
+      "compatibility": {
+        "requires": ["1080p-60fps-fix"],
+        "compatible_with": ["*"],
+        "incompatible_with": [],
+        "conflicts_with": {},
+        "install_before": ["*texture-mods"],
+        "install_after": ["k1r-restoration", "1080p-60fps-fix"]
+      },
+      "installation_notes": [
+        "Install AFTER 1080p 60fps fix",
+        "Fixes fade-in/fade-out transition effects for widescreen",
+        "Corrects black bars during scene transitions",
+        "Small but essential quality-of-life fix",
+        "Pure texture mod - no conflicts"
+      ],
+      "tested_combinations": [
+        {
+          "with": ["1080p-60fps-fix", "kotor-high-resolution-menus"],
+          "status": "compatible",
+          "notes": "Completes the widescreen/high-resolution setup"
+        }
+      ],
+      "source": {
+        "url": "https://www.nexusmods.com/kotor/mods/1379",
+        "author": "Various",
+        "date_added": "2020-03-08"
+      }
+    }
+  },
+  "compatibility_rules": {
+    "foundation_mods_first": {
+      "description": "Foundation mods like K1R must be installed before all other mods",
+      "mods": ["k1r-restoration", "k1cp-community-patch"],
+      "priority": 1
+    },
+    "texture_mods_last": {
+      "description": "Texture-only mods should be installed last as they're safe overwrites",
+      "pattern": "*texture*",
+      "priority": 999
+    },
+    "tslpatcher_before_override": {
+      "description": "TSLPatcher mods should generally be installed before Override folder mods",
+      "tslpatcher_priority": 100,
+      "override_priority": 500
+    }
+  },
+  "installation_order_templates": {
+    "kotor1_standard": [
+      "foundation",
+      "bugfix",
+      "content",
+      "gameplay",
+      "ui",
+      "visual",
+      "texture"
+    ],
+    "kotor1_ultrawide": [
+      "foundation",
+      "bugfix",
+      "content",
+      "gameplay",
+      "ui",
+      "visual",
+      "texture"
+    ],
+    "kotor2_standard": [
+      "tslrcm",
+      "m478",
+      "content",
+      "bugfix",
+      "gameplay",
+      "ui",
+      "visual",
+      "texture"
+    ]
+  },
+  "ultrawide_notes": {
+    "description": "For ultrawide monitors (21:9, 32:9)",
+    "required_mods": [
+      "1080p-60fps-fix",
+      "kotor-high-resolution-menus"
+    ],
+    "supported_resolutions": [
+      "2560x1080 (21:9)",
+      "3440x1440 (21:9)",
+      "3840x1080 (32:9)",
+      "5120x1440 (32:9)"
+    ],
+    "installation_tips": [
+      "Use UniWS (part of 1080p 60fps fix) to set your ultrawide resolution",
+      "Select the matching gui.WxH folder from High Resolution Menus",
+      "Run HiRes Patcher on your executable for ultrawide resolution",
+      "Install order remains the same as standard 16:9 setup"
+    ]
+  },
+  "known_safe_combinations": [
+    {
+      "name": "K1R + Visual Enhancements",
+      "mods": ["k1r-restoration", "vurts-visual-resurgence", "high-quality-skyboxes"],
+      "order": ["k1r-restoration", "vurts-visual-resurgence", "high-quality-skyboxes"],
+      "tested": true,
+      "notes": "Popular combination for enhanced KOTOR 1 experience"
+    },
+    {
+      "name": "Complete 2025 Enhancement Build",
+      "mods": [
+        "k1r-restoration",
+        "1080p-60fps-fix",
+        "widescreen-fade-fix",
+        "kotor-high-resolution-menus",
+        "revamped-fx",
+        "high-quality-skyboxes-ii",
+        "high-quality-skyboxes-model-fixes",
+        "vurts-visual-resurgence"
+      ],
+      "order": [
+        "k1r-restoration",
+        "1080p-60fps-fix",
+        "widescreen-fade-fix",
+        "kotor-high-resolution-menus",
+        "revamped-fx",
+        "high-quality-skyboxes-ii",
+        "high-quality-skyboxes-model-fixes",
+        "vurts-visual-resurgence"
+      ],
+      "tested": true,
+      "notes": "Full modern KOTOR experience with resolution fixes, UI scaling, and high-quality textures"
+    }
+  ],
+  "metadata": {
+    "total_mods": 8,
+    "games_supported": ["kotor1", "kotor2"],
+    "last_community_sync": "2025-11-04",
+    "contributors": ["KOTOR Mod Manager Skill"]
+  }
+}

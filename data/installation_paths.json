@@ -1,0 +1,11 @@
+{
+  "last_detected": "2025-11-04T21:09:41Z",
+  "kotor1": [0;32m✓[0m Found KOTOR 1
+  App: /Users/tomdimino/Library/Application Support/Steam/steamapps/common/swkotor/Knights of the Old Republic.app
+  Override: [0;32mEXISTS[0m
+  Permissions: [0;32mWRITABLE[0m
+  Files in Override: 0
+{"detected":false,"game_name":"KOTOR 1","detected":true,"app_path":"/Users/tomdimino/Library/Application Support/Steam/steamapps/common/swkotor/Knights of the Old Republic.app","data_path":"/Users/tomdimino/Library/Application Support/Steam/steamapps/common/swkotor/Knights of the Old Republic.app/Contents/KOTOR Data","override_path":"/Users/tomdimino/Library/Application Support/Steam/steamapps/common/swkotor/Knights of the Old Republic.app/Contents/KOTOR Data/Override","override_exists":true,"override_writable":true,"mod_file_count":0},
+  "kotor2": [0;31m✗[0m KOTOR 2 not found
+{"detected":false,"game_name":"KOTOR 2","detected":false}
+}
