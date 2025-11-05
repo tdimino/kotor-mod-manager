@@ -342,6 +342,88 @@ For restoration mods, complex installers:
 
 **Output:** Mod installed to Override + modules, installlog.rtf generated
 
+### Workflow 4c: AI Mods with Plugin Support
+
+**Purpose:** Install Improved AI with Repeating Blaster Attacks Restoration using compatibility plugin.
+
+**When to use:**
+- User wants enhanced AI behavior in combat
+- User wants repeating blasters to function as originally intended
+- Installing mods that modify the same core scripts (k_ai_master.ncs)
+
+**Mods Covered:**
+1. **KotOR1 - Improved AI v1.3.3** by GearHead
+   - Nexus Mods: https://www.nexusmods.com/kotor/mods/1573
+   - Deadly Stream: https://deadlystream.com/files/file/2328-kotor1-improved-ai/
+
+2. **Repeating Blaster Attacks Restoration v2.0** by R2-X2
+   - Deadly Stream: https://deadlystream.com/files/file/1405-repeating-blaster-attacks-restoration/
+
+3. **Compatibility Plugin** (included with Improved AI v1.2.7+)
+
+**Installation Order (CRITICAL):**
+
+```bash
+# Set Override path
+OVERRIDE="/Users/$USER/Library/Application Support/Steam/steamapps/common/swkotor/Knights of the Old Republic.app/Contents/KOTOR Data/Override"
+
+# 1. Extract Improved AI
+cd ~/Downloads
+unzip "KotOR1 - Improved AI.zip" -d /tmp/improved_ai
+
+# 2. Install Improved AI to Override
+cp /tmp/improved_ai/override/k_ai_master.ncs "$OVERRIDE/"
+
+# 3. Extract Compatibility Plugin
+unzip "Compatibility Plugin for Repeating blaster attacks restoration 2.0.zip" -d /tmp/compat_plugin
+
+# 4. Install Compatibility Plugin (Repeaters ONLY version)
+cp /tmp/compat_plugin/"Repeaters ONLY"/override/rptr_att.ncs "$OVERRIDE/"
+
+# 5. Verify installation
+ls -lh "$OVERRIDE/k_ai_master.ncs"  # Should be ~128 KB
+ls -lh "$OVERRIDE/rptr_att.ncs"     # Should be ~652 bytes
+```
+
+**Plugin Options:**
+- **Repeaters ONLY** (recommended): Only repeating blasters get +1 attack
+- **Repeaters + Rifles**: Both repeaters AND rifles get +1 attack (gameplay change)
+
+**Effect on Gameplay:**
+
+| Weapon Type | Without Mod | With Repeating Blaster | With Improved AI |
+|-------------|-------------|------------------------|------------------|
+| **Normal Attack** | 1 attack | 2 attacks | 2 attacks + smarter AI |
+| **With Rapid Shot** | 2 attacks | 3 attacks | 3 attacks + smarter AI |
+| **Force Speed** | Varies | Partially fixed | Compatible |
+
+**AI Improvements (from Improved AI v1.3.3):**
+- Enemies now use Force Breach and Lightsaber Throw
+- NPCs properly use Force Jump when 10m+ from target
+- Companions heal all team members (not just player)
+- NPCs use Master Rapid Shot/Flurry instead of default attacks
+- Enemies use highest-level feats and force powers available
+- AI uses feats granted by equipped items
+- Shield reactivation after 200 seconds
+- Plugin support for repeating blaster mechanics
+
+**Compatibility Notes:**
+- ✓ Compatible with K1R (install after K1R)
+- ✓ Compatible with all visual/audio mods
+- ✓ No .2da modifications (pure script change)
+- ✓ Improved AI includes K1CP's AI fix
+- ⚠ Conflicts with other k_ai_master.ncs modifications
+
+**Troubleshooting:**
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| **Repeating blasters not working** | Missing rptr_att.ncs | Install compatibility plugin |
+| **AI not improved** | Wrong k_ai_master.ncs version | Ensure using Improved AI version (128 KB) |
+| **Game crashes** | Both original Repeating Blaster + Improved AI installed | Delete original, keep only Improved AI version |
+
+**Output:** Enhanced AI + repeating blaster mechanics active
+
 ### Workflow 5: Verify Installation
 
 **Purpose:** Validate mods are properly installed and functional.
