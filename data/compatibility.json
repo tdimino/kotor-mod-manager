@@ -644,7 +644,8 @@
         "compatible_with": [
           "k1r-restoration",
           "*visual-mods",
-          "*audio-mods"
+          "*audio-mods",
+          "repeating-blaster-restoration"
         ],
         "incompatible_with": [],
         "conflicts_with": {},
@@ -654,7 +655,7 @@
         ]
       },
       "installation_notes": [
-        "Install AFTER K1R or K1CP if using either",
+        "Install AFTER K1R",
         "Already includes the AI fix from K1 Community Patch",
         "Significantly increases combat difficulty and enemy intelligence",
         "Enemies use Force Breach, Lightsaber Throw, better buffing, force jumps",
@@ -675,6 +676,79 @@
         "url": "https://www.nexusmods.com/kotor/mods/1573",
         "author": "GearHead",
         "date_added": "2023-06-27"
+      }
+    },
+    "repeating-blaster-restoration": {
+      "name": "Repeating Blaster Attacks Restoration",
+      "version": "2.0",
+      "game": "kotor1",
+      "type": "gameplay",
+      "install_method": "override",
+      "install_order": "middle",
+      "file_count": 1,
+      "size_mb": 0.1,
+      "modifies": {
+        "file_types": [
+          ".2da"
+        ],
+        "categories": [
+          "combat",
+          "balance",
+          "weapons"
+        ],
+        "game_systems": [
+          "combat_mechanics",
+          "weapon_attacks"
+        ],
+        "specific_files": [
+          "baseitems.2da"
+        ]
+      },
+      "compatibility": {
+        "requires": [],
+        "compatible_with": [
+          "k1r-restoration",
+          "improved-ai",
+          "*visual-mods"
+        ],
+        "incompatible_with": [],
+        "conflicts_with": {},
+        "install_before": [],
+        "install_after": [
+          "k1r-restoration",
+          "k1cp-community-patch"
+        ]
+      },
+      "installation_notes": [
+        "Restores original developer intention for repeating blasters",
+        "Gives repeating blasters +1 attack per round (like dual-wielding)",
+        "Without mod: 1 attack normally, 2 with Rapid Shot",
+        "With mod: 2 attacks normally, 3 with Rapid Shot",
+        "Install AFTER K1R",
+        "Improved AI v1.2.7+ has plugin support for this mod",
+        "Changes baseitems.2da - may conflict with other weapon mods"
+      ],
+      "tested_combinations": [
+        {
+          "with": [
+            "improved-ai"
+          ],
+          "status": "compatible",
+          "notes": "Improved AI has dedicated plugin support for this mod"
+        },
+        {
+          "with": [
+            "k1r-restoration"
+          ],
+          "status": "compatible",
+          "notes": "Install Repeating Blaster after K1R"
+        }
+      ],
+      "source": {
+        "url": "https://deadlystream.com/files/file/1405-repeating-blaster-attacks-restoration/",
+        "author": "R2-X2",
+        "date_added": "2018-11-19",
+        "last_updated": "2024-11-16"
       }
     }
   },
@@ -790,7 +864,7 @@
     }
   ],
   "metadata": {
-    "total_mods": 9,
+    "total_mods": 10,
     "games_supported": [
       "kotor1",
       "kotor2"
