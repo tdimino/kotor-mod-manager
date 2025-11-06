@@ -439,7 +439,66 @@ ls -lh "$OVERRIDE/rptr_att.ncs"     # Should be ~652 bytes
    - Case-sensitivity errors (override vs Override)
    - Permission denied errors
    - Corrupted files
+   - Stale cache preventing mod loading
 4. Generate verification report
+
+### Workflow 5a: Clear Game Cache (CRITICAL for Troubleshooting)
+
+**Purpose:** Clear KOTOR cache and preferences to ensure mods load properly.
+
+**When to use:**
+- Mods are installed but not appearing in-game
+- Textures not loading despite files in Override
+- Resolution changes not taking effect
+- After major mod installations or updates
+- Game behaving as if mods aren't present
+
+**Process:**
+
+**1. Clear Cache Directory:**
+```bash
+# Remove all cache files
+rm -rf ~/Library/Caches/com.aspyr.kotor.steam/*
+```
+
+**2. Reset Preferences (Optional but Recommended):**
+```bash
+# Backup first
+cp ~/Library/Preferences/com.aspyr.kotor.steam.plist ~/Library/Preferences/com.aspyr.kotor.steam.plist.backup
+
+# Remove old preferences
+rm ~/Library/Preferences/com.aspyr.kotor.steam.plist
+
+# Recreate with proper resolution (if needed)
+defaults write com.aspyr.kotor.steam "Screen Width" -int 1920
+defaults write com.aspyr.kotor.steam "Screen Height" -int 1080
+defaults write com.aspyr.kotor.steam "Graphics - Fullscreen Res" -string "1920x1080"
+defaults write com.aspyr.kotor.steam "DisplayFullScreen" -int 1
+```
+
+**3. Verify Clean State:**
+```bash
+# Cache should be empty
+ls ~/Library/Caches/com.aspyr.kotor.steam/
+
+# Preferences should have new settings
+defaults read com.aspyr.kotor.steam
+```
+
+**4. Launch from Steam:**
+- ALWAYS launch from Steam after cache clear
+- Quit Steam completely first (CMD+Q)
+- Restart Steam
+- Launch KOTOR from Steam Library
+- Game will rebuild cache on first launch
+
+**Important Notes:**
+- Clearing cache does NOT affect your mods (Override folder untouched)
+- Clearing cache does NOT affect saved games
+- First launch after cache clear may take slightly longer
+- Desktop shortcuts should NOT be used - always launch from Steam
+
+**Output:** Clean cache state, game ready to reload mods properly
 
 **Common Issues & Solutions:**
 
@@ -787,23 +846,34 @@ defaults delete com.aspyr.kotor.steam "Graphics - Fullscreen Res"
 ```
 
 **After Configuration:**
-1. Restart KOTOR completely
-2. Resolution may not appear in Graphics Options menu
-3. If not shown, it's **already active** (check in-game)
-4. Black bars on 3:2 displays are normal and correct for 16:9 content
+1. **Clear game cache** (see Workflow 5a) - CRITICAL for changes to take effect
+2. **Quit and restart Steam completely**
+3. **Launch from Steam Library** (not desktop shortcuts)
+4. Resolution may not appear in Graphics Options menu (normal on macOS)
+5. If not shown in menu, it's **already active** (check in-game visuals)
+6. Black bars on 3:2 displays are normal and correct for 16:9 content
 
 **Troubleshooting:**
 
 **Resolution still doesn't work:**
+- **First: Clear cache** - Run Workflow 5a (most common fix)
 - Verify plist file exists: `ls -l ~/Library/Preferences/com.aspyr.kotor.steam.plist`
 - Check values: `plutil -p ~/Library/Preferences/com.aspyr.kotor.steam.plist`
-- Restart Steam completely
+- Quit Steam completely (CMD+Q), restart, launch from Library
+- **Always launch from Steam**, never from desktop shortcuts
 - Reboot Mac if necessary
 
 **UI elements are stretched or wrong size:**
 - Your resolution doesn't match High Res Menus mod
+- Clear cache (Workflow 5a) and relaunch from Steam
 - Reinstall High Res Menus for your aspect ratio
 - Or change resolution to match installed High Res Menus
+
+**Textures not loading despite files in Override:**
+- **Clear cache** - Run Workflow 5a (most common fix)
+- Launch from Steam, not desktop shortcuts
+- Verify Override folder case: capital O, lowercase verride
+- Check file permissions: `chmod -R 755 Override/`
 
 ## Resources
 
@@ -933,9 +1003,38 @@ defaults delete com.aspyr.kotor.steam "Graphics - Fullscreen Res"
 - Success/failure visualization
 - Installed file listings
 
-## Launching KOTOR with Mod Verification
+## Launching KOTOR - ALWAYS Use Steam
 
-After installing mods, use the mod-aware launcher to verify all mods are active before playing:
+**CRITICAL:** Always launch KOTOR from Steam, NOT from desktop shortcuts or custom launchers.
+
+**Why Steam Launch is Required:**
+- macOS Aspyr port requires Steam integration to load mods properly
+- Cache rebuilding only works correctly via Steam
+- Custom launchers and shortcuts can bypass mod loading
+- Resolution settings may not apply outside Steam
+
+**Correct Launch Procedure:**
+
+1. **Quit Steam Completely** (if running)
+   - Right-click Steam in menu bar → Quit Steam
+   - Or: CMD+Q in Steam app
+
+2. **Restart Steam**
+   - Ensures fresh start with clean preferences
+
+3. **Launch from Steam Library**
+   - Open Steam → Library
+   - Find "Star Wars: Knights of the Old Republic"
+   - Click "Play"
+
+4. **After Cache Clear or Major Changes:**
+   - First launch may take slightly longer
+   - Game rebuilds cache with new settings
+   - Mods will load from Override folder automatically
+
+## Verifying Installed Mods (Optional)
+
+If you want to verify which mods are active before launching:
 
 **Script:** `scripts/launch_kotor_with_mods.sh`
 
@@ -950,7 +1049,7 @@ After installing mods, use the mod-aware launcher to verify all mods are active 
 3. Identifies specific mods (K1R, Vurt's, Skyboxes, etc.)
 4. Displays file counts and installation date
 5. Shows visual confirmation all mods are active
-6. Launches game via Steam after user confirmation
+6. ~~Launches game via Steam after user confirmation~~ (Informational only - launch from Steam separately)
 
 **Example Output:**
 ```
@@ -980,20 +1079,13 @@ Press any key to launch KOTOR 1...
 ```
 
 **Benefits:**
-- Visual confirmation mods are working
+- Visual confirmation mods are working before launching
 - No file conflicts or journal modifications needed
 - Shows exact file counts for verification
 - Works with any mod combination
 - Supports both KOTOR 1 and KOTOR 2
 
-**Create Desktop Shortcut (Optional):**
-```bash
-# Make launcher easily accessible
-ln -s ~/.claude/skills/kotor-mod-manager/scripts/launch_kotor_with_mods.sh ~/Desktop/LaunchKOTOR.command
-chmod +x ~/Desktop/LaunchKOTOR.command
-```
-
-Now you can double-click LaunchKOTOR.command on Desktop to see mod list and launch game.
+**Note:** This script is for informational purposes only to verify mod installation. After viewing the mod list, close the script and launch KOTOR from Steam as described above.
 
 ## Common User Requests & Responses
 
@@ -1016,7 +1108,13 @@ Now you can double-click LaunchKOTOR.command on Desktop to see mod list and laun
 → Run `scripts/launch_kotor_with_mods.sh`
 
 **"Launch KOTOR with mod verification"**
-→ Run `scripts/launch_kotor_with_mods.sh`
+→ Run `scripts/launch_kotor_with_mods.sh` to view installed mods, then launch from Steam
+
+**"Mods not loading in game"**
+→ Workflow 5a (Clear Game Cache) → Launch from Steam
+
+**"Resolution not working / Low resolution"**
+→ Workflow 5a (Clear Game Cache) + Resolution Configuration → Launch from Steam
 
 **"Install Reddit spoiler-free build"**
 → Load build from data/mod_builds/ → Check compatibility → Install sequence
