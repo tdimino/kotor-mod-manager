@@ -28,6 +28,11 @@ mv kotor-mod-manager ~/.claude/skills/
 
 ### Usage Examples
 
+**Check Steam Configuration (REQUIRED FIRST!):**
+```bash
+bash ~/.claude/skills/kotor-mod-manager/scripts/check_steam_config.sh
+```
+
 **Detect KOTOR Installation:**
 ```bash
 bash ~/.claude/skills/kotor-mod-manager/scripts/detect_kotor_install.sh
@@ -51,6 +56,61 @@ python3 ~/.claude/skills/kotor-mod-manager/scripts/parse_2da.py \
 ```bash
 bash ~/.claude/skills/kotor-mod-manager/scripts/setup_kotormodsync.sh
 ```
+
+## ⚠️ CRITICAL: Steam Version Configuration
+
+**If you're using the Steam version of KOTOR, you MUST configure Steam settings before installing mods, or your mods will not work.**
+
+The Steam version requires these changes:
+
+1. **Disable Steam Overlay** - Prevents crashes and conflicts
+2. **Disable Cloud Save** - Prevents save corruption with mods
+3. **Disable Auto-Update** - Prevents Steam from overwriting modified executables
+4. **Create Desktop Shortcut** - Launch from modded executable, not Steam
+5. **Never Launch Through Steam** - Use desktop shortcut only
+
+### Quick Configuration Check
+
+Run this command to verify your Steam configuration:
+
+```bash
+bash ~/.claude/skills/kotor-mod-manager/scripts/check_steam_config.sh
+```
+
+This interactive script will:
+- Detect your Steam KOTOR installation
+- Check Steam overlay and cloud save settings
+- Verify desktop shortcuts exist
+- Guide you through required configuration steps
+- Optionally create a desktop shortcut for you
+
+### Why This Matters
+
+From the KOTOR modding community:
+
+> "If you use the Steam version there are specific configuration steps required to disable Steam overlay, cloud save, auto update. Do not launch the game thru Steam as you must use a modified executable."
+>
+> — [KOTOR 2025 Mod Guide](https://www.nexusmods.com/kotor/mods/1705)
+
+**Common Issues When Steam is Not Configured:**
+
+- ❌ Game crashes on launch (Steam Overlay enabled)
+- ❌ Mods disappear after restarting (Cloud Save overwriting)
+- ❌ Modified executable missing (Auto-Update overwrote it)
+- ❌ Mods not loading (Launching through Steam)
+
+### Detailed Instructions
+
+For complete step-by-step instructions, see:
+
+**[Steam Configuration Guide](references/steam-configuration.md)**
+
+This comprehensive guide includes:
+- Detailed steps for disabling each Steam feature
+- macOS-specific instructions for hidden folders
+- Desktop shortcut creation methods
+- Backup strategies for modified executables
+- Troubleshooting common Steam-related issues
 
 ## How It Works
 
@@ -90,15 +150,18 @@ kotor-mod-manager/
 ├── SKILL.md                     # Main skill documentation
 ├── README.md                    # This file
 ├── scripts/                     # Executable scripts
+│   ├── check_steam_config.sh    # Verify Steam configuration (RUN FIRST!)
 │   ├── detect_kotor_install.sh  # Find KOTOR on macOS
 │   ├── check_mod_conflicts.py   # Conflict detection
 │   ├── parse_2da.py             # .2da file parser
 │   └── setup_kotormodsync.sh    # Install KOTORModSync
 ├── references/                  # Reference documentation
+│   ├── steam-configuration.md   # Steam setup guide (CRITICAL!)
 │   ├── file-types.md            # KOTOR file type reference
 │   ├── installation-paths.md    # macOS path guide
 │   ├── compatibility-matrix.md  # Known mod compatibility
-│   └── kotormodsync-integration.md  # KOTORModSync guide
+│   ├── kotormodsync-integration.md  # KOTORModSync guide
+│   └── tslpatcher-wine-guide.md # Wine TSLPatcher setup
 ├── data/                        # Data files
 │   ├── compatibility.json       # Compatibility database
 │   ├── mod_metadata/            # Individual mod info
@@ -115,14 +178,29 @@ kotor-mod-manager/
 - **KOTOR 1 or 2** installed via Steam
 - **Internet connection** (for downloading KOTORModSync)
 
-## Example Mods Included
+## Mods in Compatibility Database
 
-The compatibility database includes metadata for:
+The database includes complete metadata for 10 production-tested mods:
 
-1. **Vurt's KotOR Visual Resurgence** - 2,411 high-resolution textures
-2. **K1R Restoration 1.2** - Restored cut content for KOTOR 1
+**Foundation & Content:**
+1. **K1R Restoration 1.2** - Restores cut content (dialog, items, missions, impossible difficulty)
 
-These serve as examples and starting points for the compatibility database.
+**Gameplay & AI:**
+2. **Improved AI v1.3.3** by GearHead - Enhanced combat AI, Force power usage, companion healing
+3. **Repeating Blaster Attacks Restoration v2.0** by R2-X2 - Restores +1 attack per round for repeaters
+
+**Resolution & UI:**
+4. **High Resolution Menus 1.5** - 1920x1080 UI for modern displays
+5. **1080p 60fps Fix** - Proper widescreen and frame rate support
+6. **Widescreen Fade Fix** - Fixes transition effects for widescreen
+
+**Visual Enhancements:**
+7. **Vurt's Visual Resurgence 0.99a** - 2,411 high-resolution textures
+8. **High Quality Skyboxes II 2.2** - Remastered space environments
+9. **Skybox Model Fixes 1.0** - Fixes Taris exterior animations
+10. **Revamped FX 1.0.1** - Enhanced combat effects, Force powers, explosions
+
+All mods tested together with 2,954 files in Override folder on macOS Sequoia 15.1.
 
 ## macOS-Specific Features
 
@@ -163,31 +241,69 @@ Remove mods or restore from backups.
 
 ## Tips for Best Results
 
-1. Always run compatibility check before installing multiple mods
-2. Install foundation mods (K1R, TSLRCM) first
-3. Back up your saves before major mod installations
-4. Install texture mods last (safe overwrites)
-5. Test game after each major mod to isolate issues
+1. **Configure Steam settings BEFORE installing any mods** (see Steam Configuration section)
+2. Always run compatibility check before installing multiple mods
+3. Install foundation mods (K1R, TSLRCM) first
+4. Back up your saves before major mod installations
+5. Install texture mods last (safe overwrites)
+6. Test game after each major mod to isolate issues
+7. **Always launch using desktop shortcut, NEVER through Steam**
 
 ## Troubleshooting
 
+### Mods Not Working / Game Crashing
+
+**First, check your Steam configuration!**
+
+```bash
+bash ~/.claude/skills/kotor-mod-manager/scripts/check_steam_config.sh
+```
+
+Most mod issues are caused by incorrect Steam settings:
+
+- Steam Overlay enabled → Crashes
+- Cloud Save enabled → Mods disappear
+- Auto-Update enabled → Modified executable overwritten
+- Launching through Steam → Mods don't load
+
+See [Steam Configuration Guide](references/steam-configuration.md) for solutions.
+
 ### KOTOR Not Found
+
 - Check Steam is installed
 - Verify KOTOR is downloaded
 - Look for additional Steam library locations
 
 ### Override Folder Missing
+
 - Skill will create it automatically with proper capitalization (capital O)
 
 ### Permission Denied
+
 ```bash
 chmod -R 755 "path/to/Override"
 ```
 
 ### KOTORModSync Installation Fails
-- Visit https://github.com/th3w1zard1/KOTORModSync/releases
+
+- Visit <https://github.com/th3w1zard1/KOTORModSync/releases>
 - Download macOS version manually
 - Extract to ~/KOTORModSync/
+
+### Modified Executable Missing After Steam Update
+
+If Steam overwrote your modded executable:
+
+```bash
+# Option 1: Restore from backup (if you made one)
+cd ~/Library/Application\ Support/Steam/steamapps/common/swkotor
+cp -r "Knights of the Old Republic.app.modded.backup" "Knights of the Old Republic.app"
+
+# Option 2: Re-install mods
+# Run your mod installers again (TSLPatcher, KOTORModSync)
+```
+
+Then disable auto-update as described in the Steam Configuration Guide.
 
 ## Support & Resources
 
