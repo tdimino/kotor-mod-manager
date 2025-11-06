@@ -7,6 +7,8 @@ A comprehensive Claude Code skill for managing Knights of the Old Republic (KOTO
 ## Features
 
 - **Automatic Installation Detection** - Finds KOTOR 1 & 2 installations on macOS
+- **Steam Configuration Management** - Interactive checker and desktop shortcut creation
+- **Terminal Launch Command** - Install `kotor` command to launch game from anywhere
 - **Mod Compatibility Checking** - Analyzes conflicts between mods before installation
 - **Native macOS Support** - Handles hidden Library folders, .app bundles, and permissions
 - **TSLPatcher Integration** - Auto-installs and uses KOTORModSync for complex mods
@@ -32,6 +34,12 @@ mv kotor-mod-manager ~/.claude/skills/
 ```bash
 bash ~/.claude/skills/kotor-mod-manager/scripts/check_steam_config.sh
 ```
+
+**Install 'kotor' Terminal Command (Recommended):**
+```bash
+bash ~/.claude/skills/kotor-mod-manager/scripts/install_kotor_command.sh
+```
+This creates a simple `kotor` command to launch the game from anywhere in your terminal.
 
 **Detect KOTOR Installation:**
 ```bash
@@ -151,6 +159,7 @@ kotor-mod-manager/
 ├── README.md                    # This file
 ├── scripts/                     # Executable scripts
 │   ├── check_steam_config.sh    # Verify Steam configuration (RUN FIRST!)
+│   ├── install_kotor_command.sh # Install 'kotor' terminal command
 │   ├── detect_kotor_install.sh  # Find KOTOR on macOS
 │   ├── check_mod_conflicts.py   # Conflict detection
 │   ├── parse_2da.py             # .2da file parser
