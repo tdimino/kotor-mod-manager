@@ -65,6 +65,12 @@ python3 ~/.claude/skills/kotor-mod-manager/scripts/parse_2da.py \
 bash ~/.claude/skills/kotor-mod-manager/scripts/setup_kotormodsync.sh
 ```
 
+**Configure Resolution (If Only One Resolution Shows):**
+```bash
+bash ~/.claude/skills/kotor-mod-manager/scripts/configure_resolution.sh
+```
+Fixes the common issue where KOTOR launcher shows only one resolution option.
+
 ## ⚠️ CRITICAL: Steam Version Configuration
 
 **If you're using the Steam version of KOTOR, you MUST configure Steam settings before installing mods, or your mods will not work.**
@@ -160,6 +166,7 @@ kotor-mod-manager/
 ├── scripts/                     # Executable scripts
 │   ├── check_steam_config.sh    # Verify Steam configuration (RUN FIRST!)
 │   ├── install_kotor_command.sh # Install 'kotor' terminal command
+│   ├── configure_resolution.sh  # Fix resolution/fullscreen issues
 │   ├── detect_kotor_install.sh  # Find KOTOR on macOS
 │   ├── check_mod_conflicts.py   # Conflict detection
 │   ├── parse_2da.py             # .2da file parser
@@ -313,6 +320,20 @@ cp -r "Knights of the Old Republic.app.modded.backup" "Knights of the Old Republ
 ```
 
 Then disable auto-update as described in the Steam Configuration Guide.
+
+### Game Shows Only One Resolution / Windowed Mode
+
+If KOTOR launcher shows only one resolution option or appears windowed:
+
+```bash
+bash ~/.claude/skills/kotor-mod-manager/scripts/configure_resolution.sh
+```
+
+Choose either:
+- **1920x1080** - Best compatibility with widescreen mods
+- **2560x1440** - Higher quality, recommended for Retina displays
+
+The script automatically configures fullscreen mode and proper resolution in `swkotor.ini`.
 
 ## Support & Resources
 
