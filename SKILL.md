@@ -767,6 +767,46 @@ chmod 644 "path/to/file"
 - Filenames must match game expectations
 - Some mods from Windows may have wrong case
 
+**Archive Extraction Issues:**
+
+Some mod archives (particularly RAR files) may trigger macOS Gatekeeper warnings or fail to extract properly with built-in tools.
+
+**Common Issues:**
+- "This file is from an unidentified developer" warning
+- RAR files with unsupported compression methods
+- Quarantine attributes preventing extraction
+
+**Solutions:**
+
+**Option 1: The Unarchiver (Recommended)**
+```bash
+# Install The Unarchiver (handles more compression methods)
+brew install --cask the-unarchiver
+
+# Then right-click RAR → Open With → The Unarchiver
+# Or double-click after setting as default
+```
+
+**Option 2: Remove Quarantine Attributes**
+```bash
+# Remove quarantine flag from downloaded mod
+xattr -d com.apple.quarantine "/path/to/mod.rar"
+
+# Or clear all extended attributes
+xattr -c "/path/to/mod.rar"
+```
+
+**Problematic Mods Known to Require The Unarchiver:**
+- **Revamped FX** - RAR uses compression method unsupported by unrar/7z
+- Certain Deadly Stream archives
+- Older mods with RAR5 compression
+
+**Why The Unarchiver Works Better:**
+- Bypasses macOS quarantine warnings when launched as GUI
+- Supports wider range of RAR compression methods
+- Handles modern RAR5 format better than command-line unrar
+- Native macOS integration prevents Gatekeeper blocks
+
 ### Resolution Configuration for Retina Displays (CRITICAL)
 
 **Problem:**
