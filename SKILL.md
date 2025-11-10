@@ -1227,6 +1227,186 @@ Press any key to launch KOTOR 1...
    Installation successful! Launch KOTOR to see your mods.
    ```
 
+## Currently Installed Mods (November 2025)
+
+### Production Installation - KOTOR 1 (macOS Steam)
+
+**Total Override Files:** 4,029 (updated Nov 9, 2025)
+**Installation Path:** `~/Library/Application Support/Steam/steamapps/common/swkotor/Knights of the Old Republic.app/Contents/KOTOR Data/Override`
+
+### Foundation Mods
+
+1. **K1R Restoration 1.2** (Nov 5, 2025)
+   - Knights of the Old Republic Restoration mod
+   - Restores cut content and fixes bugs
+   - Method: TSLPatcher (manual installation)
+   - Files: 1,107+
+   - Status: ✓ Active
+
+### Graphics & Visual Enhancement
+
+2. **Vurt's Visual Resurgence** (Nov 4, 2025)
+   - Complete visual overhaul - 2,482 texture files
+   - Environments, characters, items, weapons
+   - Method: Override folder
+   - Status: ✓ Active (weapon textures replaced by Toasty Fresh)
+
+3. **High Quality Skyboxes II** (Nov 4, 2025)
+   - 97 high-resolution skybox textures
+   - Method: Override folder
+   - Status: ✓ Active
+
+4. **Skybox Model Fixes** (Nov 4, 2025)
+   - 143 model files (.mdl, .mdx)
+   - Fixes skybox rendering issues
+   - Method: Override folder
+   - Status: ✓ Active
+
+5. **Revamped FX** (Nov 7, 2025)
+   - 25+ effect textures (explosions, Force powers)
+   - Method: Override folder (extracted via The Unarchiver)
+   - Status: ✓ Active
+
+6. **High Resolution Menus** (Nov 4, 2025)
+   - 81 GUI texture files
+   - Method: Override folder
+   - Status: ✓ Active
+
+7. **Widescreen Fade Fix** (Nov 4, 2025)
+   - Fixes fade effects on widescreen resolutions
+   - Method: Override folder
+   - Status: ✓ Active
+
+### Character & NPC Mods
+
+8. **High-Res Body Textures** (Nov 7, 2025)
+   - 44 character body texture files (5.9MB each)
+   - Companions and NPCs
+   - Method: Override folder
+   - Status: ✓ Active (Bastila textures replaced by TCS)
+
+9. **Portraits Mod** (Nov 6, 2025)
+   - 169 portrait files (NPC + Player)
+   - Method: Override folder (TPC only)
+   - Status: ✓ Active
+
+10. **Sith Soldier Texture Restoration v2.4** (Nov 9, 2025)
+    - Restores high-quality Sith Soldier textures
+    - Module updates for multiple planets
+    - Method: Override + modules folder (manual from tslpatchdata/Main)
+    - Status: ✓ Active
+
+### Weapons & Combat
+
+11. **Toasty Fresh's Weapon Model Overhaul** (Nov 9, 2025)
+    - 224 new weapon models and textures
+    - All weapons except lightsabers, stun sticks, quarterstaffs, gaffi sticks, wookiee warblade
+    - Method: Override folder
+    - Status: ✓ Active
+
+12. **Weapon Model Overhaul Texture Rework** (Nov 9, 2025)
+    - 205 high-resolution weapon textures
+    - Requires Toasty Fresh's base mod
+    - Method: Manual installation from tslpatchdata
+    - Status: ✓ Active
+
+13. **New Lightsaber Blades K1 v1** (Nov 9, 2025)
+    - Enhanced lightsaber blade models with ambient lighting
+    - 3D core and glow models
+    - Standard version installed
+    - Method: Override folder (from tslpatchdata/standard)
+    - Status: ✓ Active
+
+### Gameplay & Content Mods
+
+14. **JC's Cloaked Jedi Robes for K1 v1.4** (Nov 6, 2025)
+    - Adds cloaked variants of Jedi robes
+    - Method: TSLPatcher via Wine
+    - Status: ✓ Active
+
+15. **Improved AI v1.3.3** (Nov 5, 2025)
+    - k_ai_master.ncs (128KB)
+    - Repeating Blaster compatibility plugin (rptr_att.ncs - 652 bytes)
+    - Method: Override folder
+    - Status: ✓ Active
+
+16. **Pretty Good! Icons** (Nov 6, 2025)
+    - 324 updated icon files (ia_*, ii_*, iw_* prefixes)
+    - Method: Override folder
+    - Status: ✓ Active
+
+17. **Bastila Has Battle Meditation** (Nov 9, 2025)
+    - Adds Battle Meditation Force power to Bastila
+    - Character files, 2DA updates, visual effects
+    - Method: Override + modules folder (manual)
+    - Status: ✓ Active
+
+18. **K1 Party Conversations on Ebon Hawk v1.3** (Nov 9, 2025)
+    - 61 dialog and script files
+    - Adds conversations with companions on the Ebon Hawk
+    - Method: Override + modules folder (manual)
+    - Status: ✓ Active
+
+19. **Taris Dueling Arena Adjustment v1.4** (Nov 9, 2025)
+    - 43 files (screens, crowd textures, scripts)
+    - Enhanced arena experience
+    - Method: Manual from tslpatchdata
+    - Status: ✓ Active
+
+20. **Logical Datapads** (Nov 9, 2025)
+    - 23 files (1 item + 22 module updates)
+    - Updates datapads across all planets with improved logic
+    - Method: Override + modules folder (manual)
+    - Status: ✓ Active
+
+21. **Thigh-High Boots for Twi'lek Body (NPC Replacement)** (Nov 9, 2025)
+    - 6 files (2 models + 4 textures)
+    - Adds thigh-high boots to all female Twi'lek NPCs
+    - Method: Override folder
+    - Status: ✓ Active
+    - Note: Removed conflicting .tpc files (N_TwilekFB01.tpc, N_TwilekFC01.tpc)
+
+### Audio & Sound Mods
+
+22. **Ultimate Sound Mod** (Nov 9, 2025)
+    - 26 sound effect files (.wav)
+    - Lightsaber sounds from films (ignition, swings, clash)
+    - Blaster effects (including Han Solo's DL-44)
+    - Force power audio (Force Lightning, Force Choke, Force Wave, Lightsaber Throw)
+    - Modifies baseitems.2da (lightsaber powerup/powerdown sounds)
+    - Modifies spells.2da (Force power casting sounds)
+    - Method: TSLPatcher via Wine
+    - Status: ✓ Active
+    - Author: Shem
+    - File Size: 799 KB
+    - Community Rating: 5/5 stars (22,757 downloads)
+
+### Installation Notes
+
+**Compatibility:**
+- All mods tested and compatible with K1R
+- Weapon textures intentionally replace Vurt's weapon textures
+- No .2da conflicts detected
+- Module files updated by multiple mods (Battle Meditation, Party Conversations, Sith Soldier Restoration, Taris Arena)
+
+**Known Overwrites:**
+- Vurt's weapon textures → Toasty Fresh + Texture Rework
+- Vanilla lightsaber blades → New Lightsaber Blades
+- Some Vurt's Sith Soldier textures → Sith Soldier Restoration
+- Vurt's Twi'lek body textures (.tpc) → Twi'lek Boots (.tga, conflicting .tpc removed)
+- Various .2da files updated:
+  - baseitems.2da: Ultimate Sound Mod (lightsaber sounds)
+  - spells.2da: Ultimate Sound Mod (Force power sounds)
+  - appearance.2da, featgain.2da: Various mods
+
+**Installation Methods Used:**
+- Override folder: Direct file copy for texture/model mods
+- TSLPatcher via Wine: For complex installers (JC's Robes)
+- Manual tslpatchdata extraction: For mods with installation issues
+- The Unarchiver: For problematic RAR files (Revamped FX)
+
+**Last Updated:** November 9, 2025
+
 ## Tips for Best Results
 
 1. **Always run compatibility check** before installing multiple mods
